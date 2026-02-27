@@ -10,9 +10,28 @@ def final_value_after_operations(operations):
 
    return tigger
 
-operations = ["trouncy", "flouncy", "flouncy"]
-print(final_value_after_operations(operations))
+def can_pair(item_quantities):
+   # input: List of numbers
+   # output: Bool. True -> if each number in list is even, False otherwise
 
-operations = ["bouncy", "bouncy", "flouncy"]
-print(final_value_after_operations(operations))
+   # plan
+
+   # iterate through list
+   # if curr num is not even, return false
+   # at the end, return true
+
+   for item in item_quantities:
+      if item % 2 != 0:
+         return False
+      
+   return True
+
+item_quantities = [2, 4, 6, 8]
+print(can_pair(item_quantities))
+
+item_quantities = [1, 2, 3, 4]
+print(can_pair(item_quantities))
+
+item_quantities = []
+print(can_pair(item_quantities))
 
