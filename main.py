@@ -50,14 +50,32 @@ def tiggerfy(s):
 
    return s
 
-s = "suspicerous"
-print(tiggerfy(s))
+def locate_thistles(items):
+   # input: List of string
+   # output: List of indices w/ value "thistle" in the list
 
-s = "Trigger"
-print(tiggerfy(s))
+   # plan
 
-s = "Hunny"
-print(tiggerfy(s))
+   # create a new empty list
+   # iterate through enumarated items
+      # if curr item is == to "thistle"
+         # append index to new list
+   
+   # return new list
+
+   lst = []
+
+   for i, item in enumerate(items):
+      if item == "thistle":
+         lst.append(i)
+
+   return lst
+
+items = ["thistle", "stick", "carrot", "thistle", "eeyore's tail"]
+print(locate_thistles(items))
+
+items = ["book", "bouncy ball", "leaf", "red balloon"]
+print(locate_thistles(items))
 
 
 
