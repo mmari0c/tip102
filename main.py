@@ -26,12 +26,38 @@ def can_pair(item_quantities):
       
    return True
 
-item_quantities = [2, 4, 6, 8]
-print(can_pair(item_quantities))
+def tiggerfy(s):
+   # input: string
+   # output: new string with letters [t, i, g, e, r] removed from og string
 
-item_quantities = [1, 2, 3, 4]
-print(can_pair(item_quantities))
+   # question:
+      # is it case sensitive? NO
 
-item_quantities = []
-print(can_pair(item_quantities))
+   # plan
+
+   # initialize array with values [t, i, g, e, r]
+   # iterate through s:
+      # if curr char is in arr, removes it
+   
+   # return new string
+
+   arr = ['t', 'i', 'g', 'e', 'r']
+   s = s.lower()
+
+   for char in s:
+      if char in arr:
+         s = s.replace(char, "")
+
+   return s
+
+s = "suspicerous"
+print(tiggerfy(s))
+
+s = "Trigger"
+print(tiggerfy(s))
+
+s = "Hunny"
+print(tiggerfy(s))
+
+
 
