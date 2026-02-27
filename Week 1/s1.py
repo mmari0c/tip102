@@ -71,11 +71,5 @@ def locate_thistles(items):
 
    return lst
 
-items = ["thistle", "stick", "carrot", "thistle", "eeyore's tail"]
-print(locate_thistles(items))
-
-items = ["book", "bouncy ball", "leaf", "red balloon"]
-print(locate_thistles(items))
-
 
 
