@@ -21,6 +21,29 @@ def is_acronym(words, s):
    
    return True
 
-words = ["christopher", "robin", "milne", "hello"]
-s = "crm"
-print(is_acronym(words, s))
+def make_divisible_by_3(nums):
+   # input: list of nums
+   # output: int: Min num of operations to make all elements divisible by 3
+
+   # Note: Can only add or sub 1 from any element of nums in 1 operation
+
+   # Plan
+
+   # Int counter: number of operations performed
+   # iterate through each num in nums:
+      # for each num:
+         # if num % 3 == 0:
+            # continue through loop
+         # elif num == 1 -> count += 2
+         # else:  
+            # add 1 to counter
+
+   counter = 0
+   for num in nums:
+      if num % 3 == 0:
+         continue
+      else:
+         counter += 1
+   
+   return counter
+         
