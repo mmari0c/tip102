@@ -51,10 +51,46 @@ def max_audience_performances2(audiences):
 
    return maxVal * count
 
-audiences1 = [100, 200, 200, 150, 100, 250]
-audiences2 = [120, 180, 220, 150, 220]
+def num_popular_pairs(popularity_scores):
+   pass
 
-print(max_audience_performances2(audiences1))
-print(max_audience_performances2(audiences2))
+   # input: array of ints -> represent popularity score of songs
+   # output: int -> num of popular song pairs
+      # num of pairs = (n * n-1)/2
+
+   # plan
+
+   # create a dic
+   # iterate through popularity_scores:
+      # if score is not in dic -> add it to dic
+      # add 1 to value of dic[score]
+   
+   # create num of pairs variable
+   # iterate through values in new dic:
+      # at each value, calculate (val * val-1) / 2 and add to num_of_pairs
+   
+   # return num_of_pairs
+
+   dic = {}
+   for score in popularity_scores:
+      if score not in dic:
+         dic[score] = 0
+      dic[score] += 1
+   
+   num_of_pairs = 0
+   for value in dic.values():
+      num_of_pairs += (value * (value - 1))/2
+   
+   return num_of_pairs
+   
+
+
+popularity_scores1 = [1, 2, 3, 1, 1, 3]
+popularity_scores2 = [1, 1, 1, 1]
+popularity_scores3 = [1, 2, 3]
+
+print(num_popular_pairs(popularity_scores1))
+print(num_popular_pairs(popularity_scores2))
+print(num_popular_pairs(popularity_scores3))
 
 
