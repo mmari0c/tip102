@@ -25,22 +25,30 @@ def best_set(votes):
    
    return max(dic, key=dic.get)
 
-votes1 = {
-    1234: "SZA", 
-    1235: "Yo-Yo Ma",
-    1236: "Ethel Cain",
-    1237: "Ethel Cain",
-    1238: "SZA",
-    1239: "SZA"
-}
+def max_audience_performances(audiences):
+   pass
+   
+   # create a new dic -> key: num of people val: how many performances had that number of audiences
+   # iterate through audiences
+      # if val is not in dic -> add it to dic
+      # add 1 at dic[value]
+   
+   # return the max val * its value
 
-votes2 = {
-    1234: "SZA", 
-    1235: "Yo-Yo Ma",
-    1236: "Ethel Cain",
-    1237: "Ethel Cain",
-    1238: "SZA"
-}
+   dic = {}
+   for audience in audiences:
+      if audience not in dic:
+         dic[audience] = 0
+      dic[audience] += 1
 
-print(best_set(votes1))
-print(best_set(votes2))
+   maxVal = max(dic)
+   
+   return maxVal * dic[maxVal]
+
+audiences1 = [100, 200, 200, 150, 100, 250]
+audiences2 = [120, 180, 220, 150, 220]
+
+print(max_audience_performances(audiences1))
+print(max_audience_performances(audiences2))
+
+
