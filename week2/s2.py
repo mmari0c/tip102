@@ -89,3 +89,53 @@ def navigate_research_station(station_layout, observations):
    
    return total_time
 
+def prioritize_observations(observed_species, priority_species):
+   # input: 
+      # list priority_species -> distinct species that are priority
+      # list observed_species -> species observed in which are a superset of priority_spcies
+
+   # output:
+      # list -> sorted list of observed_species such that the relative ordering of times in observed_species matches that of priority_species
+   
+   # note:
+      # species that don't appear in priority_species should be placed at the end in ascending order
+
+   # plan
+
+   # initialize dic -> key: species, value: num of times species have been observed
+   # initalize an empty list
+
+   # iterate through priority_species;
+      # append curr_species dic[curr_species] times
+   
+   
+
+   dic = {}
+   for species in observed_species:
+      if species not in dic:
+         dic[species] = 0
+      dic[species] += 1
+   
+   lst = []
+   for species in priority_species:
+      lst.extend([species] * dic[species])
+
+   newLst = []
+   for species in observed_species:
+      if species not in priority_species:
+         newLst.extend([species] * dic[species])
+
+   newLst.sort()
+   lst.extend(newLst)
+
+   return(lst)
+
+observed_species1 = ["🐯", "🦁", "🦌", "🦁", "🐯", "🐘", "🐍", "🦑", "🐻", "🐯", "🐼"]
+priority_species1 = ["🐯", "🦌", "🐘", "🦁"]  
+
+observed_species2 = ["bluejay", "sparrow", "cardinal", "robin", "crow"]
+priority_species2 = ["cardinal", "sparrow", "bluejay"]
+
+prioritize_observations(observed_species1, priority_species1)
+prioritize_observations(observed_species2, priority_species2)
+   
