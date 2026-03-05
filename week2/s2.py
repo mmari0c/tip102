@@ -166,6 +166,53 @@ def distinct_averages(species_populations):
 
    return len(setOfArr)
 
+def max_species_copies(raised_species, target_species):
+   # input: 
+   # string raised_species -> represents list of species available to release (each char represents a diff species)
+   # string target_species -> represents specific sequences of species you want to form and release together
+
+   # output: int -> num of copies of target_spcies that can be formed by taking species from raised_species and rearranging them
+
+   # test:
+      # raised_species = "abcba"
+      # target_species = "abc"
+
+      # output -> 1, since we can only form abc once. We have "a" and "b" left but no "c" to construct another one
+      # we can only release the min number of raised_species that are target_species
+   
+   # plan:
+
+      # create a new dic -> key: each in target_species, value: num of that species in raised species
+
+      # iterate through target species:
+         # create a dic key for each
+      
+      # iterate through raised species:
+         # if raised species is in dic:
+            # add 1 to it
+      
+      # return min value of dic
+
+   dic = {}
+   for species in target_species:
+      dic[species] = 0
+   
+   for species in raised_species:
+      if species in dic:
+         dic[species] += 1
+   
+   maxNumOfCopies = min(dic.values())
+
+   return maxNumOfCopies
+
+raised_species1 = "abcba"
+target_species1 = "abc"
+print(max_species_copies(raised_species1, target_species1))  # Output: 1
+
+raised_species2 = "aaaaabbbbcc"
+target_species2 = "abc"
+print(max_species_copies(raised_species2, target_species2)) # Output: 2
+   
 
 
    
