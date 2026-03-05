@@ -49,3 +49,43 @@ def count_endangered_species(endangered_species, observed_species):
          counter += 1
    
    return counter
+
+def navigate_research_station(station_layout, observations):
+   # input: 
+      # string station_layout -> each char represents diff observation points
+      # string observations -> each char represents order we want to make observations
+   
+   # output: int -> total time taken to visit all requiered observation points in the given order
+
+   # note:
+      # we can only move from one point to another
+      # time taken to move from one observation to another is = | i - j |
+   
+   # plan
+
+   # create a dic: char -> index (from station_layout)
+
+   # initialize curr_pos = index of observations[0] in station_layout  ← physical starting position
+   # initialize total_time = curr_pos
+
+   # iterate through observations starting at index 1:
+   #   next_pos = dic[observations[i]]
+   #   total_time += | curr_pos - next_pos |
+   #   curr_pos = next_pos  ← update physical position
+
+   # return total_time
+
+   dic = {}
+   for i, char in enumerate(station_layout):
+      dic[char] = i
+   
+   curr_pos = dic[observations[0]]
+   total_time = curr_pos
+
+   for i in range(1, len(observations)):
+      next_pos = dic[observations[i]]
+      total_time += abs(curr_pos - next_pos)
+      curr_pos = next_pos
+   
+   return total_time
+
