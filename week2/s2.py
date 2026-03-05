@@ -130,12 +130,42 @@ def prioritize_observations(observed_species, priority_species):
 
    return(lst)
 
-observed_species1 = ["🐯", "🦁", "🦌", "🦁", "🐯", "🐘", "🐍", "🦑", "🐻", "🐯", "🐼"]
-priority_species1 = ["🐯", "🦌", "🐘", "🦁"]  
+def distinct_averages(species_populations):
+   # input: list -> of even len, each element represents population of a species
+   # output: int -> num of distinct avgs calculate using the below process:
 
-observed_species2 = ["bluejay", "sparrow", "cardinal", "robin", "crow"]
-priority_species2 = ["cardinal", "sparrow", "bluejay"]
+   # while list is not empty:
+      # find min and remove it from list
+      # find max and remove it from list
+      # calc avg population between min & max
+   
+   # plan
 
-prioritize_observations(observed_species1, priority_species1)
-prioritize_observations(observed_species2, priority_species2)
+   # initialize list of avgs
+      # while list is not empty:
+      # find min and remove it from list
+      # find max and remove it from list
+      # calc avg population between min & max
+      # append avg to list
+   
+   # convert list to set
+
+   # return len of set
+
+   arr = []
+   while species_populations:
+      maxVal = max(species_populations)
+      species_populations.remove(maxVal)
+
+      minVal = min(species_populations)
+      species_populations.remove(minVal)
+
+      arr.append((minVal + maxVal) / 2)
+   
+   setOfArr = set(arr)
+
+   return len(setOfArr)
+
+
+
    
