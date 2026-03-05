@@ -24,20 +24,28 @@ def most_endangered(species_list):
    return dic["name"]
 
 
+def count_endangered_species(endangered_species, observed_species):
+   # input: 
+      # string endangered_species -> each char in string denotes a diff endangered species
+      # string observed_species -> each char in string denotes a species observed in the region
 
-species_list = [
-    {"name": "Amur Leopard",
-     "habitat": "Temperate forests",
-     "population": 84
-    },
-    {"name": "Javan Rhino",
-     "habitat": "Tropical forests",
-     "population": 72
-    },
-    {"name": "Vaquita",
-     "habitat": "Marine",
-     "population": 10
-    }
-]
+   # output: int -> num of instances of observed species who are considered endangered
 
-print(most_endangered(species_list))
+   # plan:
+      
+      # split up the endangered_species string into an array
+      # intialize a counter
+
+      # iterate through observed_species string:
+         # if curr char is in endangered_species -> update the counter
+      
+      # return counter
+
+   arr = list(endangered_species)
+   counter = 0
+
+   for species in observed_species:
+      if species in arr:
+         counter += 1
+   
+   return counter
