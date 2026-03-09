@@ -205,14 +205,6 @@ def max_species_copies(raised_species, target_species):
 
    return maxNumOfCopies
 
-raised_species1 = "abcba"
-target_species1 = "abc"
-print(max_species_copies(raised_species1, target_species1))  # Output: 1
-
-raised_species2 = "aaaaabbbbcc"
-target_species2 = "abc"
-print(max_species_copies(raised_species2, target_species2)) # Output: 2
-   
 
 
    
