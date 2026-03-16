@@ -29,5 +29,29 @@ def is_valid_post_format(posts):
       
    return len(stack) == 0
 
-print(is_valid_post_format("([])"))
+def reverse_comments_queue(comments):
+  # input: queue -> comments represented as a list of strings
+  # output: stack -> reversed order of comments queue
+
+  # plan:
+  
+  # initliaze a stack
+  # iterate through comments queue
+      # append current comment to stack
+
+  # return stack
+
+  stack = []
+  list = []
+  for comment in comments:
+     stack.append(comment)
+
+  for i in range(len(stack)):
+     list.append(stack.pop())
+
+  return list
+
+print(reverse_comments_queue(["Great post!", "Love it!", "Thanks for sharing."]))
+
+print(reverse_comments_queue(["First!", "Interesting read.", "Well written."]))
   
