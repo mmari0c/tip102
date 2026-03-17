@@ -51,7 +51,45 @@ def reverse_comments_queue(comments):
 
   return list
 
-print(reverse_comments_queue(["Great post!", "Love it!", "Thanks for sharing."]))
+def is_symmetrical_title(title):
+   pass
+   # input: string -> title of a post
+   # output: bool -> true if title is symmetrical, false otherwise
 
-print(reverse_comments_queue(["First!", "Interesting read.", "Well written."]))
+   # Ignores spaces, punctuation, and case
+
+   # plan:
+
+   # lower the whole string
+
+   # initalize a left pointer starting at the 1st index
+   # initalize a right pointer starting at the last index
+   
+   # keep running while left is less than right:
+      # if string[left] is a space or punction, move right by one
+      # if string[right] is a space or punction, move left by one
+      # if string[left] is equal to string[right] -> continue and move pointers inward
+      # otherwise return false
+   
+   # return true
+
+   title = title.lower()
+   left = 0
+   right = len(title) - 1
+
+   while left < right:
+      if title[left] == ' ' or title[left] == '!' or title[left] == '?' or title[left] == '.':
+         left += 1
+      if title[right] == ' ' or title[right] == '!' or title[right] == '?' or title[right] == '.':
+         right -= 1
+      if title[left] == title[right]:
+         left += 1
+         right -= 1
+         continue
+
+      return False
+   
+   return True
+
+
   
