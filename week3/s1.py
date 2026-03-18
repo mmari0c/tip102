@@ -91,5 +91,50 @@ def is_symmetrical_title(title):
    
    return True
 
+# def engagement_boost(engagements):
+#     squared_engagements = [] # list of squared engagements
+    
+#     # iterate though enegagements, squaring each value, and appending it to the new list
+#     for i in range(len(engagements)):
+#         squared_engagement = engagements[i] * engagements[i]
+#         squared_engagements.append((squared_engagement, i))
+    
+#     # sorts the squared engagements
+#     squared_engagements.sort(reverse=True)
+    
+#     # creates an array of the same size of engagements
+#     result = [0] * len(engagements)
+#     # creates a pointer to the last position of the list
+#     position = len(engagements) - 1
+    
+#     # iterates through squared engagements, stores that value into result[position] (starting from the end), and going backwards in the position
+#     for square, original_index in squared_engagements:
+#         result[position] = square
+#         position -= 1
+    
+#     return result
+
+def engagement_boost(engagements):
+   pass
+   squaredEngagements = []
+   for i in range(len(engagements)):
+      squared_engagement = engagements[i] * engagements[i]
+      squaredEngagements.append((squared_engagement))
+   
+   left = 0
+   right = len(squaredEngagements) - 1
+
+   return squaredEngagements
+
+   # while left < right:
+   #    leftVal = squared_engagement[left]
+   #    rightVal = squared_engagement[right]
+
+      
+
+
+print(engagement_boost([-4, -1, 0, 3, 10]))
+print(engagement_boost([-7, -3, 2, 3, 11]))
+
 
   
