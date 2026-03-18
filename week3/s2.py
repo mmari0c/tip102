@@ -17,7 +17,66 @@ def collect_festival_points(points):
 
    return sum
 
-print(collect_festival_points([5, 8, 3, 10])) 
-print(collect_festival_points([2, 7, 4, 6])) 
-print(collect_festival_points([1, 5, 9, 2, 8]))
+
+def booth_navigation(clues):
+   # input: list -> order to visit the booths
+      # ex. [1, 2, "back", 3, 4], when "back", backtrack to previous booth
+   # output: list -> final sequence of booths visited
+
+   # match: stacks, since we will be backtracking
+
+   # edge case:
+      # 1. If we have 2 backs at the same time w/ an empty stack, we should not perform anything
+
+   # plan:
+
+   # initialize a stack
+   # iterate through the clues list:
+      # if it's "back", then we pop the stack
+      # otherwise, we append the integer to the stack
    
+   # return the stack
+
+   stack = []
+   for clue in clues:
+      if not clue == "back":
+         stack.append(clue)
+      else:
+         if stack:
+            stack.pop()
+   
+   return stack
+
+def merge_schedules(schedule1, schedule2):
+   # input: 2 strings -> each char corresponds to a performance slot
+   # output: string -> merged schedules in alternating order starting w/ schedule1
+
+   # edge case:
+      # 1. A string is longer than the other -> append additional performances onto the end of merged schedule
+
+   # happy case: schedule1 = "abc" schedule2 = "pqr" -> apbqcr
+   # odd case: schedule1 = "ab" schedule2 = "pqrs" -> apbqrs
+
+   # plan:
+
+   # initalize an empty string
+   # initalize a left1 and left2 value of 0
+   
+   # iterate len(schedule1) times
+      # appending schedule1[left1] and then schedule2[left2]
+      # incrementing by left1 and left2 by 1
+
+   # return string
+   result = []
+   left1, left2 = 0, 0
+
+   while left1 < len(schedule1) and left2 < len(schedule2):
+      result.append(schedule1[left1])
+      result.append(schedule2[left2])
+      left1 += 1
+      left2 += 1
+
+   result.append(schedule1[left1:])
+   result.append(schedule2[left2:])
+
+   return "".join(result)
