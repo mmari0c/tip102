@@ -1,23 +1,29 @@
-def extract_nft_names(nft_collection):
-   pass
-   # input: list of dictionary -> "name": "x", "creator": "y", "value": "x"
-   # output: list of all NFT names
+# def extract_nft_names(nft_collection):
+#    pass
+#    # input: list of dictionary -> "name": "x", "creator": "y", "value": "x"
+#    # output: list of all NFT names
 
-   # match: dictionaries and arrays
+#    # match: dictionaries and arrays
    
-   # plan:
+#    # plan:
 
-   # initialize an array to store nft names
-   # loop over nft collection 
-      # at each nft, extract name and append to the list
+#    # initialize an array to store nft names
+#    # loop over nft collection 
+#       # at each nft, extract name and append to the list
 
-   # return list
+#    # return list
 
-   list = []
-   for nft in nft_collection:
-      list.append(nft["name"])
+#    list = []
+#    for nft in nft_collection:
+#       list.append(nft["name"])
 
-   return list
+#    return list
+
+def extract_nft_names(nft_collection):
+    nft_names = []
+    for nft in nft_collection:
+        nft_names.append(nft["name"])
+    return nft_names
 
 
 
