@@ -80,3 +80,19 @@ def merge_schedules(schedule1, schedule2):
    result.append(schedule2[left2:])
 
    return "".join(result)
+
+def next_greater_event(schedule1, schedule2):
+  pass
+  # input:
+   # 1. int array -> each index representing an event's popularity score (subset of schedule2)
+   # 2. int array -> each index repreenting an event's popularity score
+
+  # output: array (len(schedule1)) -> for each event in schedule1, each index is the next event in schedule2 w/ a higher popularity score
+
+  # edge case:
+   # 1. if there's no event such that the next event in schedule2 is higher to the current event in schedule1 -> -1
+
+   
+  # plan:
+
+  #
