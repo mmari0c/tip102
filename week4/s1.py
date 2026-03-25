@@ -84,14 +84,13 @@ def average_nft_value(nft_collection):
    # output: int -> average value of the NFT collection
 
    # Edge case:
-      # if empty -> return 0
+   #    if empty -> return 0
    
    # plan:
-
    # return 0 if list nft_collection is empty
    # initialize a sum value
    # iterate through the nft collection
-      # extra the value of each nft, adding it to the sum
+   #    extra the value of each nft, adding it to the sum
 
    # return sum / length of the nft_collection
 
@@ -120,6 +119,70 @@ def average_nft_value(nft_collection):
 # nft_collection_3 = []
 # print(average_nft_value(nft_collection_3))
 
+def search_nft_by_tag(nft_collections, tag):
+   pass
+   # input: nested list of dics, string representing the tag we're looking for
+   # output: list of nft names with the specific tag
 
+   # plan:
+   
+   # initialize a list to store nft names with the specific tag
+
+   # iterate through the nft_collections:
+      # iterate thrugh the nft_collection
+         # at each nft, check if the tag is in dic["tags"]
+         # if so -> append the name of nft to the list
+   
+   # return list
+
+   lst = []
+   for nft_collection in nft_collections:
+      for nft in nft_collection:
+         if tag in nft["tags"]:
+            lst.append(nft["name"])
+   
+   return lst
+
+# nft_collections = [
+#     [
+#         {"name": "Abstract Horizon", "tags": ["abstract", "modern"]},
+#         {"name": "Pixel Dreams", "tags": ["pixel", "retro"]}
+#     ],
+#     [
+#         {"name": "Urban Jungle", "tags": ["urban", "landscape"]},
+#         {"name": "City Lights", "tags": ["modern", "landscape"]}
+#     ]
+# ]
+
+# nft_collections_2 = [
+#     [
+#         {"name": "Golden Hour", "tags": ["sunset", "landscape"]},
+#         {"name": "Sunset Serenade", "tags": ["sunset", "serene"]}
+#     ],
+#     [
+#         {"name": "Pixel Odyssey", "tags": ["pixel", "adventure"]}
+#     ]
+# ]
+
+# nft_collections_3 = [
+#     [
+#         {"name": "The Last Piece", "tags": ["finale", "abstract"]}
+#     ],
+#     [
+#         {"name": "Ocean Waves", "tags": ["seascape", "calm"]},
+#         {"name": "Mountain Peak", "tags": ["landscape", "adventure"]}
+#     ]
+# ]
+
+# print(search_nft_by_tag(nft_collections, "landscape"))
+# print(search_nft_by_tag(nft_collections_2, "sunset"))
+# print(search_nft_by_tag(nft_collections_3, "modern"))
+
+def process_nft_queue(nft_queue):
+   pass
+   # input: 
+
+
+   
 
 
