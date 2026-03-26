@@ -153,6 +153,26 @@ def message_received(start_villager, target_villager):
 # print(message_received(isabelle, kk_slider))
 # print(message_received(kk_slider, isabelle))
 
+class Node:
+    def __init__(self, value, next=None):
+        self.value = value
+        self.next = next
+
+tom_nook = Node("Tom Nook")
+tommy = Node("Tommy")
+tom_nook.next = tommy
+timmy = Node("Timmy")
+
+timmy.next = tom_nook.next
+tom_nook.next = timmy
+
+print(tom_nook.value)
+print(tom_nook.next.value)
+print(timmy.value)
+print(timmy.next.value)
+print(tommy.value)
+print(tommy.next)
+
 
 
 
