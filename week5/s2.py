@@ -198,6 +198,55 @@ class Villager:
 
 # 6
 
+# class Node:
+#     def __init__(self, value, next=None):
+#         self.value = value
+#         self.next = next
+
+# # For testing
+# def print_linked_list(head):
+#     current = head
+#     while current:
+#         print(current.value, end=" -> " if current.next else "\n")
+#         current = current.next
+
+# def find_min(head):
+#    pass
+
+#    # input: Node instance -> head of linked list
+#    # output: int -> min mav in the linked list
+
+#    # Understand: We want to find the min value in the linked list and return back to the user
+
+#    # Plan:
+
+#    # initalize a min with the heads value
+#    # iterate through the link list:
+#       # check if curr node value is less than the min -> if so update min to that val
+   
+#    # return min
+
+#    min = head.value
+#    curr = head.next
+
+#    while curr:
+#       if curr.value < min:
+#          min = curr.value
+#       curr = curr.next
+
+#    return min
+
+# head1 = Node(5, Node(6, Node(1, Node(8))))
+# head2 = Node(8, Node(5, Node(6, Node(2))))
+
+# # Linked List: 5 -> 6 -> 7 -> 8
+# print(find_min(head1))
+
+# # Linked List: 8 -> 5 -> 6 -> 7
+# print(find_min(head2))
+
+""" 7 """
+
 class Node:
     def __init__(self, value, next=None):
         self.value = value
@@ -210,37 +259,52 @@ def print_linked_list(head):
         print(current.value, end=" -> " if current.next else "\n")
         current = current.next
 
-def find_min(head):
+def delete_item(head, item):
    pass
+   # input: Node instance -> head of linked list, string -> item we're looking for in ll
+   # output: Node instance -> head of linked list with node with value = item removed
 
-   # input: Node instance -> head of linked list
-   # output: int -> min mav in the linked list
-
-   # Understand: We want to find the min value in the linked list and return back to the user
-
-   # Plan:
-
-   # initalize a min with the heads value
-   # iterate through the link list:
-      # check if curr node value is less than the min -> if so update min to that val
+   # edge case:
+      # if no node can be found with .value = item, return list unchanged
    
-   # return min
+   # Understand: Iterate through the linked list, when we find a node with a .value = item, we want to the previous node to point to the deleted nodes.next
 
-   min = head.value
+   # plan:
+
+   # if head value == item -> move head to be the next node and return new head
+   # initalize a prev node pointing at the head, and a curr node pointing at head.next
+
+   # iterate through linked list
+   # if we find a node has a .value = item:
+      # let prev node point curr.next node
+      # return head
+   # update the curr and prev node
+
+   if head.value == item:
+      head = head.next
+      return head
+
+   prev = head
    curr = head.next
 
    while curr:
-      if curr.value < min:
-         min = curr.value
+      if curr.value == item:
+         prev.next = curr.next
+         return head
       curr = curr.next
+      prev = prev.next
+   
+   return head
 
-   return min
+slingshot = Node("Slingshot")
+peaches = Node("Peaches")
+beetle = Node("Scarab Beetle")
+slingshot.next = peaches
+peaches.next = beetle
 
-head1 = Node(5, Node(6, Node(1, Node(8))))
-head2 = Node(8, Node(5, Node(6, Node(2))))
+# Linked List: slingshot -> peaches -> beetle
+print_linked_list(delete_item(slingshot, "Peaches"))
 
-# Linked List: 5 -> 6 -> 7 -> 8
-print(find_min(head1))
+# Linked List: slingshot -> beetle
+print_linked_list(delete_item(slingshot, "Triceratops Torso"))
 
-# Linked List: 8 -> 5 -> 6 -> 7
-print(find_min(head2))
