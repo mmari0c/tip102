@@ -153,6 +153,48 @@ class Villager:
 # # Input List: 5 -> 6 -> 7
 # print_linked_list(halve_list(node_one))
 
+# 5
+
+class Node:
+    def __init__(self, value, next=None):
+        self.value = value
+        self.next = next
+
+# For testing
+def print_linked_list(head):
+    current = head
+    while current:
+        print(current.value, end=" -> " if current.next else "\n")
+        current = current.next
+
+def delete_tail(head):
+   pass
+   # input: Node instance -> head of linked list
+   # output: Node instance -> head of linked list
+
+   # Understand: Remove the last node in the linked list and return the list back
+
+   # Plan:
+
+   # Iterate through list while there's a curr.next.next value:
+   # once loop is done, curr.next = none
+
+   curr = head
+   while curr.next.next:
+      curr = curr.next
+   
+   curr.next = None
+
+   return head
+
+butterfly = Node("Common Butterfly")
+ladybug = Node("Ladybug")
+beetle = Node("Scarab Beetle")
+butterfly.next = ladybug
+ladybug.next = beetle
+
+# Input List: butterfly -> ladybug -> beetle
+print_linked_list(delete_tail(butterfly))
 
 
 
