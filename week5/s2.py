@@ -247,6 +247,69 @@ class Villager:
 
 """ 7 """
 
+# class Node:
+#     def __init__(self, value, next=None):
+#         self.value = value
+#         self.next = next
+
+# # For testing
+# def print_linked_list(head):
+#     current = head
+#     while current:
+#         print(current.value, end=" -> " if current.next else "\n")
+#         current = current.next
+
+# def delete_item(head, item):
+#    pass
+#    # input: Node instance -> head of linked list, string -> item we're looking for in ll
+#    # output: Node instance -> head of linked list with node with value = item removed
+
+#    # edge case:
+#       # if no node can be found with .value = item, return list unchanged
+   
+#    # Understand: Iterate through the linked list, when we find a node with a .value = item, we want to the previous node to point to the deleted nodes.next
+
+#    # plan:
+
+#    # if head value == item -> move head to be the next node and return new head
+#    # initalize a prev node pointing at the head, and a curr node pointing at head.next
+
+#    # iterate through linked list
+#    # if we find a node has a .value = item:
+#       # let prev node point curr.next node
+#       # return head
+#    # update the curr and prev node
+
+#    if head.value == item:
+#       head = head.next
+#       return head
+
+#    prev = head
+#    curr = head.next
+
+#    while curr:
+#       if curr.value == item:
+#          prev.next = curr.next
+#          return head
+#       curr = curr.next
+#       prev = prev.next
+   
+#    return head
+
+# slingshot = Node("Slingshot")
+# peaches = Node("Peaches")
+# beetle = Node("Scarab Beetle")
+# slingshot.next = peaches
+# peaches.next = beetle
+
+# # Linked List: slingshot -> peaches -> beetle
+# print_linked_list(delete_item(slingshot, "Peaches"))
+
+# # Linked List: slingshot -> beetle
+# print_linked_list(delete_item(slingshot, "Triceratops Torso"))
+
+""" 8 """
+
 class Node:
     def __init__(self, value, next=None):
         self.value = value
@@ -259,52 +322,34 @@ def print_linked_list(head):
         print(current.value, end=" -> " if current.next else "\n")
         current = current.next
 
-def delete_item(head, item):
+def tail_to_head(head):
    pass
-   # input: Node instance -> head of linked list, string -> item we're looking for in ll
-   # output: Node instance -> head of linked list with node with value = item removed
-
-   # edge case:
-      # if no node can be found with .value = item, return list unchanged
-   
-   # Understand: Iterate through the linked list, when we find a node with a .value = item, we want to the previous node to point to the deleted nodes.next
+   # input: Node instance -> head of linked list
+   # output: Node instance -> head of linked list
+   # understand: We want to move the move last node in the list at the front
 
    # plan:
 
-   # if head value == item -> move head to be the next node and return new head
-   # initalize a prev node pointing at the head, and a curr node pointing at head.next
+   # we iterate through the linked list until we reach the last element, but before we want to make the element before the last one point to nothing
+   # once we have the last element, make it point to the head, and return the node
 
-   # iterate through linked list
-   # if we find a node has a .value = item:
-      # let prev node point curr.next node
-      # return head
-   # update the curr and prev node
-
-   if head.value == item:
-      head = head.next
-      return head
-
-   prev = head
-   curr = head.next
-
-   while curr:
-      if curr.value == item:
-         prev.next = curr.next
-         return head
+   curr = head
+   while curr.next.next:
       curr = curr.next
-      prev = prev.next
    
-   return head
+   last_node = curr.next
+   curr.next = None
+   last_node.next = head
+   
+   return last_node
 
-slingshot = Node("Slingshot")
-peaches = Node("Peaches")
-beetle = Node("Scarab Beetle")
-slingshot.next = peaches
-peaches.next = beetle
+daisy = Node("Daisy")
+mario = Node("Mario")
+toad = Node("Toad") 
+peach = Node("Peach")
+daisy.next = mario
+mario.next = toad
+toad.next = peach
 
-# Linked List: slingshot -> peaches -> beetle
-print_linked_list(delete_item(slingshot, "Peaches"))
-
-# Linked List: slingshot -> beetle
-print_linked_list(delete_item(slingshot, "Triceratops Torso"))
-
+# Linked List: Daisy -> Mario -> Toad -> Peach
+print_linked_list(tail_to_head(daisy))
