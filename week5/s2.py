@@ -310,46 +310,105 @@ class Villager:
 
 """ 8 """
 
+# class Node:
+#     def __init__(self, value, next=None):
+#         self.value = value
+#         self.next = next
+
+# # For testing
+# def print_linked_list(head):
+#     current = head
+#     while current:
+#         print(current.value, end=" -> " if current.next else "\n")
+#         current = current.next
+
+# def tail_to_head(head):
+#    pass
+#    # input: Node instance -> head of linked list
+#    # output: Node instance -> head of linked list
+#    # understand: We want to move the move last node in the list at the front
+
+#    # plan:
+
+#    # we iterate through the linked list until we reach the last element, but before we want to make the element before the last one point to nothing
+#    # once we have the last element, make it point to the head, and return the node
+
+#    curr = head
+#    while curr.next.next:
+#       curr = curr.next
+   
+#    last_node = curr.next
+#    curr.next = None
+#    last_node.next = head
+   
+#    return last_node
+
+# daisy = Node("Daisy")
+# mario = Node("Mario")
+# toad = Node("Toad") 
+# peach = Node("Peach")
+# daisy.next = mario
+# mario.next = toad
+# toad.next = peach
+
+# # Linked List: Daisy -> Mario -> Toad -> Peach
+# print_linked_list(tail_to_head(daisy))
+
+# """ 9 """
+
+# class Node:
+#     def __init__(self, value, next=None, prev=None):
+#         self.value = value
+#         self.next = next
+#         self.prev = prev
+
+# head = Node("Isabelle")
+# tail = Node("K.K. Slider")
+
+# head.next = tail
+# tail.prev = head
+
+# print(head.value, "<->", head.next.value)
+# print(tail.prev.value, "<->", tail.value)
+
+
+# Write a function to reverse a singly linked list. 
+# The function should take the head of a linked list as input 
+# and return the new head of the reversed linked list.
+
+""" 10 """
+
 class Node:
-    def __init__(self, value, next=None):
+    def __init__(self, value, next=None, prev=None):
         self.value = value
         self.next = next
+        self.prev = prev
 
-# For testing
-def print_linked_list(head):
-    current = head
-    while current:
-        print(current.value, end=" -> " if current.next else "\n")
-        current = current.next
-
-def tail_to_head(head):
+def print_reverse(tail):
    pass
-   # input: Node instance -> head of linked list
-   # output: Node instance -> head of linked list
-   # understand: We want to move the move last node in the list at the front
+   # input: Node instance -> tail of a doubly linked list
+   # output: Void -> print value of the linked list in reverse order
+
+   # Understand: we want to iterate through the linked list going backwards and print the value at each element in the linked list
 
    # plan:
 
-   # we iterate through the linked list until we reach the last element, but before we want to make the element before the last one point to nothing
-   # once we have the last element, make it point to the head, and return the node
+   # iterate through linked list while there's an existing node:
+      # print node.value with a space
 
-   curr = head
-   while curr.next.next:
-      curr = curr.next
+   curr = tail
+   while curr:
+      print(curr.value)
+      curr = curr.prev
    
-   last_node = curr.next
-   curr.next = None
-   last_node.next = head
-   
-   return last_node
 
-daisy = Node("Daisy")
-mario = Node("Mario")
-toad = Node("Toad") 
-peach = Node("Peach")
-daisy.next = mario
-mario.next = toad
-toad.next = peach
+isabelle = Node("Isabelle")
+kk_slider = Node("K.K. Slider")
+saharah = Node("Saharah")
+isabelle.next = kk_slider
+kk_slider.next = saharah
+saharah.prev = kk_slider
+kk_slider.prev = isabelle
 
-# Linked List: Daisy -> Mario -> Toad -> Peach
-print_linked_list(tail_to_head(daisy))
+# Linked List: Isabelle <-> K.K. Slider <-> Saharah
+print_reverse(saharah)
